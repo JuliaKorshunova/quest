@@ -1,378 +1,204 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="3100" height="2260" viewBox="0 0 3100 2260" role="img" aria-labelledby="title desc">
-<title id="title">Quest database model</title>
-<desc id="desc">Thirteen database tables with nineteen foreign key relationships. A cooperation request must contain a service or a tariff, or both.</desc>
-<defs>
-
-<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#8190a3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
-</defs>
-<rect width="3100" height="2260" fill="#f8fafc"/>
-<style>text{font-family:"DejaVu Sans",Arial,sans-serif} .field{font-size:17px;fill:#233044}.type{font-size:15px;fill:#64748b}.head{font-size:23px;font-weight:700;fill:#182b42}.section{font-size:17px;font-weight:700;letter-spacing:2px;fill:#738399}</style>
-<text x="100" y="82" font-size="43" font-weight="700" fill="#172b44">Quest</text>
-<text x="265" y="82" font-size="43" font-weight="400" fill="#64748b">/ Data model</text>
-<text x="3000" y="78" text-anchor="end" font-size="18" fill="#64748b">PostgreSQL · 13 tables · 19 relationships</text>
-<text class="section" x="100" y="190">01   ACCOUNTS &amp; COOPERATION</text>
-<path d="M 560 184 H 3000" stroke="#e1e7ef" stroke-width="1"/>
-<text class="section" x="100" y="810">02   QUEST CONTENT</text>
-<path d="M 560 804 H 3000" stroke="#e1e7ef" stroke-width="1"/>
-<text class="section" x="100" y="1540">03   PLAYTHROUGHS &amp; TAGS</text>
-<path d="M 560 1534 H 3000" stroke="#e1e7ef" stroke-width="1"/>
-<g class="relationship" data-parent="users" data-child="cooperation_requests" data-field="user_id"><title>users.id → cooperation_requests.user_id</title><path d="M 660,311 L 760,311 L 760,343 L 880,343" fill="none" stroke="#8190a3" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)"/></g>
-<g class="relationship" data-parent="users" data-child="subscriptions" data-field="organizer_id"><title>users.id → subscriptions.organizer_id</title><path d="M 660,311 L 740,311 L 740,150 L 2370,150 L 2370,343 L 2440,343" fill="none" stroke="#8190a3" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)"/></g>
-<g class="relationship" data-parent="users" data-child="quests" data-field="organizer_id"><title>users.id → quests.organizer_id</title><path d="M 100,311 L 50,311 L 50,963 L 100,963" fill="none" stroke="#8190a3" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)"/></g>
-<g class="relationship" data-parent="users" data-child="quest_sessions" data-field="user_id"><title>users.id → quest_sessions.user_id</title><path d="M 100,311 L 25,311 L 25,1725 L 100,1725" fill="none" stroke="#8190a3" stroke-width="1.7" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#arrow)"/></g>
-<g class="relationship" data-parent="tariffs" data-child="cooperation_requests" data-field="tariff_id"><title>tariffs.id → cooperation_requests.tariff_id</title><path d="M 1660,311 L 1580,311 L 1580,375 L 1440,375" fill="none" stroke="#8190a3" stroke-width="1.7" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#arrow)"/></g>
-<g class="relationship" data-parent="tariffs" data-child="subscriptions" data-field="tariff_id"><title>tariffs.id → subscriptions.tariff_id</title><path d="M 2220,311 L 2340,311 L 2340,375 L 2440,375" fill="none" stroke="#8190a3" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)"/></g>
-<g class="relationship" data-parent="cooperation_requests" data-child="subscriptions" data-field="cooperation_request_id"><title>cooperation_requests.id → subscriptions.cooperation_request_id</title><path d="M 1440,311 L 1510,311 L 1510,735 L 3060,735 L 3060,407 L 3000,407" fill="none" stroke="#8190a3" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)"/></g>
-<g class="relationship" data-parent="quests" data-child="quest_points" data-field="quest_id"><title>quests.id → quest_points.quest_id</title><path d="M 660,931 L 760,931 L 760,963 L 880,963" fill="none" stroke="#8190a3" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)"/></g>
-<g class="relationship" data-parent="quests" data-child="quest_tags" data-field="quest_id"><title>quests.id → quest_tags.quest_id</title><path d="M 660,931 L 800,931 L 800,1450 L 2360,1450 L 2360,1961 L 2440,1961" fill="none" stroke="#8190a3" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)"/></g>
-<g class="relationship" data-parent="quests" data-child="quest_sessions" data-field="quest_id"><title>quests.id → quest_sessions.quest_id</title><path d="M 100,931 L 75,931 L 75,1693 L 100,1693" fill="none" stroke="#8190a3" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)"/></g>
-<g class="relationship" data-parent="quests" data-child="session_events" data-field="quest_id"><title>quests.id → session_events.quest_id</title><path d="M 660,931 L 740,931 L 740,1490 L 820,1490 L 820,1725 L 880,1725" fill="none" stroke="#8190a3" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)"/></g>
-<g class="relationship" data-parent="quest_points" data-child="tasks" data-field="quest_point_id"><title>quest_points.id → tasks.quest_point_id</title><path d="M 1440,931 L 1540,931 L 1540,963 L 1660,963" fill="none" stroke="#8190a3" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)"/></g>
-<g class="relationship" data-parent="quest_points" data-child="quest_sessions" data-field="current_quest_point_id"><title>quest_points.id → quest_sessions.current_quest_point_id</title><path d="M 880,931 L 810,931 L 810,1410 L 700,1410 L 700,1789 L 660,1789" fill="none" stroke="#8190a3" stroke-width="1.7" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#arrow)"/></g>
-<g class="relationship" data-parent="quest_points" data-child="session_events" data-field="quest_point_id"><title>quest_points.id → session_events.quest_point_id</title><path d="M 1440,931 L 1530,931 L 1530,1757 L 1440,1757" fill="none" stroke="#8190a3" stroke-width="1.7" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#arrow)"/></g>
-<g class="relationship" data-parent="task_types" data-child="tasks" data-field="task_type_id"><title>task_types.id → tasks.task_type_id</title><path d="M 2440,931 L 2320,931 L 2320,995 L 2220,995" fill="none" stroke="#8190a3" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)"/></g>
-<g class="relationship" data-parent="tags" data-child="quest_tags" data-field="tag_id"><title>tags.id → quest_tags.tag_id</title><path d="M 2440,1661 L 2390,1661 L 2390,1993 L 2440,1993" fill="none" stroke="#8190a3" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)"/></g>
-<g class="relationship" data-parent="quest_sessions" data-child="session_events" data-field="quest_session_id"><title>quest_sessions.id → session_events.quest_session_id</title><path d="M 660,1661 L 760,1661 L 760,1693 L 880,1693" fill="none" stroke="#8190a3" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)"/></g>
-<g class="relationship" data-parent="quest_sessions" data-child="participant_answers" data-field="quest_session_id"><title>quest_sessions.id → participant_answers.quest_session_id</title><path d="M 660,1661 L 780,1661 L 780,2110 L 2320,2110 L 2320,1693 L 2220,1693" fill="none" stroke="#8190a3" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)"/></g>
-<g class="relationship" data-parent="tasks" data-child="participant_answers" data-field="task_id"><title>tasks.id → participant_answers.task_id</title><path d="M 2220,931 L 2300,931 L 2300,1725 L 2220,1725" fill="none" stroke="#8190a3" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)"/></g>
+<svg xmlns="http://www.w3.org/2000/svg" width="3230" height="2230" viewBox="0 0 3230 2230" role="img" aria-labelledby="title desc">
+<title id="title">Data model</title>
+<desc id="desc">13 tables. Filled dot means many. Solid means mandatory foreign key; dashed means optional foreign key. A request requires a nonblank service or a tariff, or both.</desc>
+<rect width="3230" height="2230" fill="white"/>
+<style>text{font-family:"DejaVu Sans",Arial,sans-serif;fill:#222} .field{font-size:18px} .head{font-size:22px;font-weight:600} .legend{font-size:18px;fill:#444}</style>
+<text x="1615" y="65" font-size="38" text-anchor="middle">Data model</text>
+<g class="relationship" data-parent="users" data-child="cooperation_requests" data-field="user_id" data-optional="false"><title>users.id — cooperation_requests.user_id</title><path d="M 1240,265 L 1280,265 L 1280,115 L 2560,115 L 2560,295 L 2600,295" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round"/></g>
+<g class="relationship" data-parent="users" data-child="subscriptions" data-field="organizer_id" data-optional="false"><title>users.id — subscriptions.organizer_id</title><path d="M 1240,265 L 1300,265 L 1300,295 L 1360,295" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round"/></g>
+<g class="relationship" data-parent="tariffs" data-child="subscriptions" data-field="tariff_id" data-optional="false"><title>tariffs.id — subscriptions.tariff_id</title><path d="M 1980,265 L 1920,265 L 1920,325 L 1860,325" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round"/></g>
+<g class="relationship" data-parent="tariffs" data-child="cooperation_requests" data-field="tariff_id" data-optional="true"><title>tariffs.id — cooperation_requests.tariff_id</title><path d="M 2480,265 L 2540,265 L 2540,325 L 2600,325" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="7 5"/></g>
+<g class="relationship" data-parent="cooperation_requests" data-child="subscriptions" data-field="cooperation_request_id" data-optional="false"><title>cooperation_requests.id — subscriptions.cooperation_request_id</title><path d="M 2600,265 L 2500,265 L 2500,650 L 1900,650 L 1900,355 L 1860,355" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round"/></g>
+<g class="relationship" data-parent="users" data-child="quests" data-field="organizer_id" data-optional="false"><title>users.id — quests.organizer_id</title><path d="M 740,265 L 700,265 L 700,895 L 740,895" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round"/></g>
+<g class="relationship" data-parent="users" data-child="quest_sessions" data-field="user_id" data-optional="true"><title>users.id — quest_sessions.user_id</title><path d="M 740,265 L 660,265 L 660,925 L 620,925" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="7 5"/></g>
+<g class="relationship" data-parent="quests" data-child="quest_sessions" data-field="quest_id" data-optional="false"><title>quests.id — quest_sessions.quest_id</title><path d="M 740,865 L 680,865 L 680,895 L 620,895" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round"/></g>
+<g class="relationship" data-parent="quests" data-child="quest_points" data-field="quest_id" data-optional="false"><title>quests.id — quest_points.quest_id</title><path d="M 1240,865 L 1300,865 L 1300,895 L 1360,895" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round"/></g>
+<g class="relationship" data-parent="quest_points" data-child="tasks" data-field="quest_point_id" data-optional="false"><title>quest_points.id — tasks.quest_point_id</title><path d="M 1860,865 L 1920,865 L 1920,945 L 1980,945" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round"/></g>
+<g class="relationship" data-parent="task_types" data-child="tasks" data-field="task_type_id" data-optional="false"><title>task_types.id — tasks.task_type_id</title><path d="M 2600,915 L 2540,915 L 2540,975 L 2480,975" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round"/></g>
+<g class="relationship" data-parent="quests" data-child="quest_tags" data-field="quest_id" data-optional="false"><title>quests.id — quest_tags.quest_id</title><path d="M 1240,865 L 1260,865 L 1260,1455 L 1240,1455" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round"/></g>
+<g class="relationship" data-parent="tags" data-child="quest_tags" data-field="tag_id" data-optional="false"><title>tags.id — quest_tags.tag_id</title><path d="M 740,1755 L 700,1755 L 700,1485 L 740,1485" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round"/></g>
+<g class="relationship" data-parent="quest_points" data-child="quest_sessions" data-field="current_quest_point_id" data-optional="true"><title>quest_points.id — quest_sessions.current_quest_point_id</title><path d="M 1360,865 L 1320,865 L 1320,1300 L 640,1300 L 640,985 L 620,985" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="7 5"/></g>
+<g class="relationship" data-parent="quest_sessions" data-child="session_events" data-field="quest_session_id" data-optional="false"><title>quest_sessions.id — session_events.quest_session_id</title><path d="M 120,865 L 80,865 L 80,1525 L 120,1525" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round"/></g>
+<g class="relationship" data-parent="quest_sessions" data-child="participant_answers" data-field="quest_session_id" data-optional="false"><title>quest_sessions.id — participant_answers.quest_session_id</title><path d="M 120,865 L 40,865 L 40,2120 L 1320,2120 L 1320,1875 L 1360,1875" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round"/></g>
+<g class="relationship" data-parent="tasks" data-child="participant_answers" data-field="task_id" data-optional="false"><title>tasks.id — participant_answers.task_id</title><path d="M 1980,915 L 1940,915 L 1940,1905 L 1860,1905" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round"/></g>
+<g class="relationship" data-parent="quests" data-child="session_events" data-field="quest_id" data-optional="false"><title>quests.id — session_events.quest_id</title><path d="M 740,865 L 720,865 L 720,1260 L 60,1260 L 60,1555 L 120,1555" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round"/></g>
+<g class="relationship" data-parent="quest_points" data-child="session_events" data-field="quest_point_id" data-optional="true"><title>quest_points.id — session_events.quest_point_id</title><path d="M 1360,865 L 1340,865 L 1340,1360 L 650,1360 L 650,1585 L 620,1585" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="7 5"/></g>
 <g class="entity" data-table="users">
-<rect x="100" y="230" width="560" height="311" rx="8" fill="white" stroke="#ccd6e2" stroke-width="1.4"/>
-<path d="M108,230 H652 Q660,230 660,238 V295 H100 V238 Q100,230 108,230" fill="#eaf1fa"/>
-<rect x="100" y="242" width="4" height="41" rx="2" fill="#6385ac"/>
-<text class="head" x="124" y="271">users</text>
-<path d="M100 295 H660" stroke="#dce3ec"/>
-<rect x="107" y="302" width="41" height="19" rx="4" fill="#e5f2ee"/><text x="127.5" y="315.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#3d7964">PK</text>
-<text class="field" x="156" y="317">id</text>
-<text class="type" x="636" y="317" text-anchor="end">int</text>
-<rect x="101" y="327" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="156" y="349">email</text>
-<text class="type" x="636" y="349" text-anchor="end">varchar(254)</text>
-<text class="field" x="156" y="381">password_hash</text>
-<text class="type" x="636" y="381" text-anchor="end">varchar(254)</text>
-<rect x="101" y="391" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="156" y="413">phone</text>
-<text class="type" x="636" y="413" text-anchor="end">varchar(20)</text>
-<text class="field" x="156" y="445">region</text>
-<text class="type" x="636" y="445" text-anchor="end">varchar(100)</text>
-<rect x="101" y="455" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="156" y="477">role</text>
-<text class="type" x="636" y="477" text-anchor="end">varchar(30)</text>
-<text class="field" x="156" y="509">registered_at</text>
-<text class="type" x="636" y="509" text-anchor="end">timestamptz</text>
-</g>
-<g class="entity" data-table="cooperation_requests">
-<rect x="880" y="230" width="560" height="447" rx="8" fill="white" stroke="#ccd6e2" stroke-width="1.4"/>
-<path d="M888,230 H1432 Q1440,230 1440,238 V295 H880 V238 Q880,230 888,230" fill="#eaf1fa"/>
-<rect x="880" y="242" width="4" height="41" rx="2" fill="#6385ac"/>
-<text class="head" x="904" y="271">cooperation_requests</text>
-<path d="M880 295 H1440" stroke="#dce3ec"/>
-<rect x="887" y="302" width="41" height="19" rx="4" fill="#e5f2ee"/><text x="907.5" y="315.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#3d7964">PK</text>
-<text class="field" x="936" y="317">id</text>
-<text class="type" x="1416" y="317" text-anchor="end">int</text>
-<rect x="881" y="327" width="558" height="32" fill="#fafbfd"/>
-<rect x="887" y="334" width="41" height="19" rx="4" fill="#fff1d9"/><text x="907.5" y="347.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#a47623">FK</text>
-<text class="field" x="936" y="349">user_id</text>
-<text class="type" x="1416" y="349" text-anchor="end">int</text>
-<rect x="887" y="366" width="41" height="19" rx="4" fill="#fff1d9"/><text x="907.5" y="379.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#a47623">FK</text>
-<text class="field" x="936" y="381">tariff_id</text>
-<text class="type" x="1416" y="381" text-anchor="end">int</text>
-<rect x="881" y="391" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="936" y="413">service</text>
-<text class="type" x="1416" y="413" text-anchor="end">text</text>
-<text class="field" x="936" y="445">email</text>
-<text class="type" x="1416" y="445" text-anchor="end">varchar(254)</text>
-<rect x="881" y="455" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="936" y="477">phone</text>
-<text class="type" x="1416" y="477" text-anchor="end">varchar(20)</text>
-<text class="field" x="936" y="509">contact_person</text>
-<text class="type" x="1416" y="509" text-anchor="end">text</text>
-<rect x="881" y="519" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="936" y="541">submitted_at</text>
-<text class="type" x="1416" y="541" text-anchor="end">timestamptz</text>
-<text class="field" x="936" y="573">status</text>
-<text class="type" x="1416" y="573" text-anchor="end">varchar(20)</text>
-<rect x="894" y="593" width="532" height="66" rx="6" fill="#fff8e9" stroke="#f0e2bc"/>
-<text x="908" y="618" font-size="16" fill="#8c681d" font-weight="700">At least one is required:</text>
-<text x="908" y="642" font-size="16" fill="#8c681d">service or tariff_id · both are allowed</text>
-</g>
-<g class="entity" data-table="tariffs">
-<rect x="1660" y="230" width="560" height="247" rx="8" fill="white" stroke="#ccd6e2" stroke-width="1.4"/>
-<path d="M1668,230 H2212 Q2220,230 2220,238 V295 H1660 V238 Q1660,230 1668,230" fill="#eaf1fa"/>
-<rect x="1660" y="242" width="4" height="41" rx="2" fill="#6385ac"/>
-<text class="head" x="1684" y="271">tariffs</text>
-<path d="M1660 295 H2220" stroke="#dce3ec"/>
-<rect x="1667" y="302" width="41" height="19" rx="4" fill="#e5f2ee"/><text x="1687.5" y="315.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#3d7964">PK</text>
-<text class="field" x="1716" y="317">id</text>
-<text class="type" x="2196" y="317" text-anchor="end">int</text>
-<rect x="1661" y="327" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="1716" y="349">name</text>
-<text class="type" x="2196" y="349" text-anchor="end">varchar(150)</text>
-<text class="field" x="1716" y="381">monthly_price</text>
-<text class="type" x="2196" y="381" text-anchor="end">numeric(12,2)</text>
-<rect x="1661" y="391" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="1716" y="413">description</text>
-<text class="type" x="2196" y="413" text-anchor="end">text</text>
-<text class="field" x="1716" y="445">max_quests</text>
-<text class="type" x="2196" y="445" text-anchor="end">int</text>
+<rect x="740" y="200" width="500" height="280" fill="white" stroke="#a8a8a8" stroke-width="1.3"/>
+<rect x="740" y="200" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3"/>
+<text class="head" x="755" y="233">users</text>
+<text class="field" x="755" y="272" data-column="id">id: int (PK)</text>
+<text class="field" x="755" y="302" data-column="email">email: varchar(254)</text>
+<text class="field" x="755" y="332" data-column="password_hash">password_hash: varchar(254)</text>
+<text class="field" x="755" y="362" data-column="phone">phone: varchar(20)</text>
+<text class="field" x="755" y="392" data-column="region">region: varchar(100)</text>
+<text class="field" x="755" y="422" data-column="role">role: varchar(30)</text>
+<text class="field" x="755" y="452" data-column="registered_at">registered_at: timestamptz</text>
 </g>
 <g class="entity" data-table="subscriptions">
-<rect x="2440" y="230" width="560" height="279" rx="8" fill="white" stroke="#ccd6e2" stroke-width="1.4"/>
-<path d="M2448,230 H2992 Q3000,230 3000,238 V295 H2440 V238 Q2440,230 2448,230" fill="#eaf1fa"/>
-<rect x="2440" y="242" width="4" height="41" rx="2" fill="#6385ac"/>
-<text class="head" x="2464" y="271">subscriptions</text>
-<path d="M2440 295 H3000" stroke="#dce3ec"/>
-<rect x="2447" y="302" width="41" height="19" rx="4" fill="#e5f2ee"/><text x="2467.5" y="315.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#3d7964">PK</text>
-<text class="field" x="2496" y="317">id</text>
-<text class="type" x="2976" y="317" text-anchor="end">int</text>
-<rect x="2441" y="327" width="558" height="32" fill="#fafbfd"/>
-<rect x="2447" y="334" width="41" height="19" rx="4" fill="#fff1d9"/><text x="2467.5" y="347.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#a47623">FK</text>
-<text class="field" x="2496" y="349">organizer_id</text>
-<text class="type" x="2976" y="349" text-anchor="end">int</text>
-<rect x="2447" y="366" width="41" height="19" rx="4" fill="#fff1d9"/><text x="2467.5" y="379.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#a47623">FK</text>
-<text class="field" x="2496" y="381">tariff_id</text>
-<text class="type" x="2976" y="381" text-anchor="end">int</text>
-<rect x="2441" y="391" width="558" height="32" fill="#fafbfd"/>
-<rect x="2447" y="398" width="41" height="19" rx="4" fill="#fff1d9"/><text x="2467.5" y="411.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#a47623">FK</text>
-<text class="field" x="2496" y="413">cooperation_request_id</text>
-<text class="type" x="2976" y="413" text-anchor="end">int</text>
-<text class="field" x="2496" y="445">starts_at</text>
-<text class="type" x="2976" y="445" text-anchor="end">timestamptz</text>
-<rect x="2441" y="455" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="2496" y="477">ends_at</text>
-<text class="type" x="2976" y="477" text-anchor="end">timestamptz</text>
+<rect x="1360" y="200" width="500" height="250" fill="white" stroke="#a8a8a8" stroke-width="1.3"/>
+<rect x="1360" y="200" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3"/>
+<text class="head" x="1375" y="233">subscriptions</text>
+<text class="field" x="1375" y="272" data-column="id">id: int (PK)</text>
+<text class="field" x="1375" y="302" data-column="organizer_id">organizer_id: int (FK)</text>
+<text class="field" x="1375" y="332" data-column="tariff_id">tariff_id: int (FK)</text>
+<text class="field" x="1375" y="362" data-column="cooperation_request_id">cooperation_request_id: int (FK)</text>
+<text class="field" x="1375" y="392" data-column="starts_at">starts_at: timestamptz</text>
+<text class="field" x="1375" y="422" data-column="ends_at">ends_at: timestamptz</text>
 </g>
-<g class="entity" data-table="quests">
-<rect x="100" y="850" width="560" height="471" rx="8" fill="white" stroke="#ccd6e2" stroke-width="1.4"/>
-<path d="M108,850 H652 Q660,850 660,858 V915 H100 V858 Q100,850 108,850" fill="#e8f3ef"/>
-<rect x="100" y="862" width="4" height="41" rx="2" fill="#5a927e"/>
-<text class="head" x="124" y="891">quests</text>
-<path d="M100 915 H660" stroke="#dce3ec"/>
-<rect x="107" y="922" width="41" height="19" rx="4" fill="#e5f2ee"/><text x="127.5" y="935.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#3d7964">PK</text>
-<text class="field" x="156" y="937">id</text>
-<text class="type" x="636" y="937" text-anchor="end">int</text>
-<rect x="101" y="947" width="558" height="32" fill="#fafbfd"/>
-<rect x="107" y="954" width="41" height="19" rx="4" fill="#fff1d9"/><text x="127.5" y="967.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#a47623">FK</text>
-<text class="field" x="156" y="969">organizer_id</text>
-<text class="type" x="636" y="969" text-anchor="end">int</text>
-<text class="field" x="156" y="1001">name</text>
-<text class="type" x="636" y="1001" text-anchor="end">varchar(150)</text>
-<rect x="101" y="1011" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="156" y="1033">description</text>
-<text class="type" x="636" y="1033" text-anchor="end">text</text>
-<text class="field" x="156" y="1065">image</text>
-<text class="type" x="636" y="1065" text-anchor="end">varchar(500)</text>
-<rect x="101" y="1075" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="156" y="1097">distance</text>
-<text class="type" x="636" y="1097" text-anchor="end">text</text>
-<text class="field" x="156" y="1129">estimated_duration</text>
-<text class="type" x="636" y="1129" text-anchor="end">text</text>
-<rect x="101" y="1139" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="156" y="1161">status</text>
-<text class="type" x="636" y="1161" text-anchor="end">varchar(20)</text>
-<text class="field" x="156" y="1193">access_type</text>
-<text class="type" x="636" y="1193" text-anchor="end">varchar(150)</text>
-<rect x="101" y="1203" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="156" y="1225">allow_resume</text>
-<text class="type" x="636" y="1225" text-anchor="end">boolean</text>
-<text class="field" x="156" y="1257">created_at</text>
-<text class="type" x="636" y="1257" text-anchor="end">timestamptz</text>
-<rect x="101" y="1267" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="156" y="1289">updated_at</text>
-<text class="type" x="636" y="1289" text-anchor="end">timestamptz</text>
+<g class="entity" data-table="tariffs">
+<rect x="1980" y="200" width="500" height="220" fill="white" stroke="#a8a8a8" stroke-width="1.3"/>
+<rect x="1980" y="200" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3"/>
+<text class="head" x="1995" y="233">tariffs</text>
+<text class="field" x="1995" y="272" data-column="id">id: int (PK)</text>
+<text class="field" x="1995" y="302" data-column="name">name: varchar(150)</text>
+<text class="field" x="1995" y="332" data-column="monthly_price">monthly_price: numeric(12,2)</text>
+<text class="field" x="1995" y="362" data-column="description">description: text</text>
+<text class="field" x="1995" y="392" data-column="max_quests">max_quests: int</text>
 </g>
-<g class="entity" data-table="quest_points">
-<rect x="880" y="850" width="560" height="407" rx="8" fill="white" stroke="#ccd6e2" stroke-width="1.4"/>
-<path d="M888,850 H1432 Q1440,850 1440,858 V915 H880 V858 Q880,850 888,850" fill="#e8f3ef"/>
-<rect x="880" y="862" width="4" height="41" rx="2" fill="#5a927e"/>
-<text class="head" x="904" y="891">quest_points</text>
-<path d="M880 915 H1440" stroke="#dce3ec"/>
-<rect x="887" y="922" width="41" height="19" rx="4" fill="#e5f2ee"/><text x="907.5" y="935.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#3d7964">PK</text>
-<text class="field" x="936" y="937">id</text>
-<text class="type" x="1416" y="937" text-anchor="end">int</text>
-<rect x="881" y="947" width="558" height="32" fill="#fafbfd"/>
-<rect x="887" y="954" width="41" height="19" rx="4" fill="#fff1d9"/><text x="907.5" y="967.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#a47623">FK</text>
-<text class="field" x="936" y="969">quest_id</text>
-<text class="type" x="1416" y="969" text-anchor="end">int</text>
-<text class="field" x="936" y="1001">name</text>
-<text class="type" x="1416" y="1001" text-anchor="end">varchar(150)</text>
-<rect x="881" y="1011" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="936" y="1033">description</text>
-<text class="type" x="1416" y="1033" text-anchor="end">text</text>
-<text class="field" x="936" y="1065">image</text>
-<text class="type" x="1416" y="1065" text-anchor="end">varchar(500)</text>
-<rect x="881" y="1075" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="936" y="1097">audio</text>
-<text class="type" x="1416" y="1097" text-anchor="end">varchar(500)</text>
-<text class="field" x="936" y="1129">latitude</text>
-<text class="type" x="1416" y="1129" text-anchor="end">numeric(10,7)</text>
-<rect x="881" y="1139" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="936" y="1161">longitude</text>
-<text class="type" x="1416" y="1161" text-anchor="end">numeric(10,7)</text>
-<text class="field" x="936" y="1193">sort_order</text>
-<text class="type" x="1416" y="1193" text-anchor="end">int</text>
-<rect x="881" y="1203" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="936" y="1225">status</text>
-<text class="type" x="1416" y="1225" text-anchor="end">varchar(20)</text>
-</g>
-<g class="entity" data-table="tasks">
-<rect x="1660" y="850" width="560" height="311" rx="8" fill="white" stroke="#ccd6e2" stroke-width="1.4"/>
-<path d="M1668,850 H2212 Q2220,850 2220,858 V915 H1660 V858 Q1660,850 1668,850" fill="#e8f3ef"/>
-<rect x="1660" y="862" width="4" height="41" rx="2" fill="#5a927e"/>
-<text class="head" x="1684" y="891">tasks</text>
-<path d="M1660 915 H2220" stroke="#dce3ec"/>
-<rect x="1667" y="922" width="41" height="19" rx="4" fill="#e5f2ee"/><text x="1687.5" y="935.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#3d7964">PK</text>
-<text class="field" x="1716" y="937">id</text>
-<text class="type" x="2196" y="937" text-anchor="end">int</text>
-<rect x="1661" y="947" width="558" height="32" fill="#fafbfd"/>
-<rect x="1667" y="954" width="41" height="19" rx="4" fill="#fff1d9"/><text x="1687.5" y="967.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#a47623">FK</text>
-<text class="field" x="1716" y="969">quest_point_id</text>
-<text class="type" x="2196" y="969" text-anchor="end">int</text>
-<rect x="1667" y="986" width="41" height="19" rx="4" fill="#fff1d9"/><text x="1687.5" y="999.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#a47623">FK</text>
-<text class="field" x="1716" y="1001">task_type_id</text>
-<text class="type" x="2196" y="1001" text-anchor="end">int</text>
-<rect x="1661" y="1011" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="1716" y="1033">selection_mode</text>
-<text class="type" x="2196" y="1033" text-anchor="end">varchar(30)</text>
-<text class="field" x="1716" y="1065">text</text>
-<text class="type" x="2196" y="1065" text-anchor="end">text</text>
-<rect x="1661" y="1075" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="1716" y="1097">correct_answer</text>
-<text class="type" x="2196" y="1097" text-anchor="end">text</text>
-<text class="field" x="1716" y="1129">hint_type</text>
-<text class="type" x="2196" y="1129" text-anchor="end">text</text>
-</g>
-<g class="entity" data-table="task_types">
-<rect x="2440" y="850" width="560" height="151" rx="8" fill="white" stroke="#ccd6e2" stroke-width="1.4"/>
-<path d="M2448,850 H2992 Q3000,850 3000,858 V915 H2440 V858 Q2440,850 2448,850" fill="#e8f3ef"/>
-<rect x="2440" y="862" width="4" height="41" rx="2" fill="#5a927e"/>
-<text class="head" x="2464" y="891">task_types</text>
-<path d="M2440 915 H3000" stroke="#dce3ec"/>
-<rect x="2447" y="922" width="41" height="19" rx="4" fill="#e5f2ee"/><text x="2467.5" y="935.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#3d7964">PK</text>
-<text class="field" x="2496" y="937">id</text>
-<text class="type" x="2976" y="937" text-anchor="end">int</text>
-<rect x="2441" y="947" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="2496" y="969">name</text>
-<text class="type" x="2976" y="969" text-anchor="end">varchar(100)</text>
+<g class="entity" data-table="cooperation_requests">
+<rect x="2600" y="200" width="500" height="408" fill="white" stroke="#a8a8a8" stroke-width="1.3"/>
+<rect x="2600" y="200" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3"/>
+<text class="head" x="2615" y="233">cooperation_requests</text>
+<text class="field" x="2615" y="272" data-column="id">id: int (PK)</text>
+<text class="field" x="2615" y="302" data-column="user_id">user_id: int (FK)</text>
+<text class="field" x="2615" y="332" data-column="tariff_id">tariff_id: int (FK) NULL</text>
+<text class="field" x="2615" y="362" data-column="service">service: text</text>
+<text class="field" x="2615" y="392" data-column="email">email: varchar(254)</text>
+<text class="field" x="2615" y="422" data-column="phone">phone: varchar(20)</text>
+<text class="field" x="2615" y="452" data-column="contact_person">contact_person: text</text>
+<text class="field" x="2615" y="482" data-column="submitted_at">submitted_at: timestamptz</text>
+<text class="field" x="2615" y="512" data-column="status">status: varchar(20)</text>
+<path d="M2615 529 H3085" stroke="#d4d4d4"/>
+<text x="2615" y="556" font-size="17">Required: service or tariff_id</text>
+<text x="2615" y="582" font-size="17">Without a tariff, service must be nonblank.</text>
 </g>
 <g class="entity" data-table="quest_sessions">
-<rect x="100" y="1580" width="560" height="407" rx="8" fill="white" stroke="#ccd6e2" stroke-width="1.4"/>
-<path d="M108,1580 H652 Q660,1580 660,1588 V1645 H100 V1588 Q100,1580 108,1580" fill="#f0edfa"/>
-<rect x="100" y="1592" width="4" height="41" rx="2" fill="#8e80af"/>
-<text class="head" x="124" y="1621">quest_sessions</text>
-<path d="M100 1645 H660" stroke="#dce3ec"/>
-<rect x="107" y="1652" width="41" height="19" rx="4" fill="#e5f2ee"/><text x="127.5" y="1665.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#3d7964">PK</text>
-<text class="field" x="156" y="1667">id</text>
-<text class="type" x="636" y="1667" text-anchor="end">int</text>
-<rect x="101" y="1677" width="558" height="32" fill="#fafbfd"/>
-<rect x="107" y="1684" width="41" height="19" rx="4" fill="#fff1d9"/><text x="127.5" y="1697.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#a47623">FK</text>
-<text class="field" x="156" y="1699">quest_id</text>
-<text class="type" x="636" y="1699" text-anchor="end">int</text>
-<rect x="107" y="1716" width="41" height="19" rx="4" fill="#fff1d9"/><text x="127.5" y="1729.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#a47623">FK</text>
-<text class="field" x="156" y="1731">user_id</text>
-<text class="type" x="636" y="1731" text-anchor="end">int</text>
-<rect x="101" y="1741" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="156" y="1763">anonymous_id</text>
-<text class="type" x="636" y="1763" text-anchor="end">varchar(100)</text>
-<rect x="107" y="1780" width="41" height="19" rx="4" fill="#fff1d9"/><text x="127.5" y="1793.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#a47623">FK</text>
-<text class="field" x="156" y="1795">current_quest_point_id</text>
-<text class="type" x="636" y="1795" text-anchor="end">int</text>
-<rect x="101" y="1805" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="156" y="1827">started_at</text>
-<text class="type" x="636" y="1827" text-anchor="end">timestamptz</text>
-<text class="field" x="156" y="1859">completed_at</text>
-<text class="type" x="636" y="1859" text-anchor="end">timestamptz</text>
-<rect x="101" y="1869" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="156" y="1891">last_activity_at</text>
-<text class="type" x="636" y="1891" text-anchor="end">timestamptz</text>
-<text class="field" x="156" y="1923">progress</text>
-<text class="type" x="636" y="1923" text-anchor="end">int</text>
-<rect x="101" y="1933" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="156" y="1955">status</text>
-<text class="type" x="636" y="1955" text-anchor="end">varchar(30)</text>
+<rect x="120" y="800" width="500" height="370" fill="white" stroke="#a8a8a8" stroke-width="1.3"/>
+<rect x="120" y="800" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3"/>
+<text class="head" x="135" y="833">quest_sessions</text>
+<text class="field" x="135" y="872" data-column="id">id: int (PK)</text>
+<text class="field" x="135" y="902" data-column="quest_id">quest_id: int (FK)</text>
+<text class="field" x="135" y="932" data-column="user_id">user_id: int (FK) NULL</text>
+<text class="field" x="135" y="962" data-column="anonymous_id">anonymous_id: varchar(100)</text>
+<text class="field" x="135" y="992" data-column="current_quest_point_id">current_quest_point_id: int (FK) NULL</text>
+<text class="field" x="135" y="1022" data-column="started_at">started_at: timestamptz</text>
+<text class="field" x="135" y="1052" data-column="completed_at">completed_at: timestamptz</text>
+<text class="field" x="135" y="1082" data-column="last_activity_at">last_activity_at: timestamptz</text>
+<text class="field" x="135" y="1112" data-column="progress">progress: int</text>
+<text class="field" x="135" y="1142" data-column="status">status: varchar(30)</text>
+</g>
+<g class="entity" data-table="quests">
+<rect x="740" y="800" width="500" height="430" fill="white" stroke="#a8a8a8" stroke-width="1.3"/>
+<rect x="740" y="800" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3"/>
+<text class="head" x="755" y="833">quests</text>
+<text class="field" x="755" y="872" data-column="id">id: int (PK)</text>
+<text class="field" x="755" y="902" data-column="organizer_id">organizer_id: int (FK)</text>
+<text class="field" x="755" y="932" data-column="name">name: varchar(150)</text>
+<text class="field" x="755" y="962" data-column="description">description: text</text>
+<text class="field" x="755" y="992" data-column="image">image: varchar(500)</text>
+<text class="field" x="755" y="1022" data-column="distance">distance: text</text>
+<text class="field" x="755" y="1052" data-column="estimated_duration">estimated_duration: text</text>
+<text class="field" x="755" y="1082" data-column="status">status: varchar(20)</text>
+<text class="field" x="755" y="1112" data-column="access_type">access_type: varchar(150)</text>
+<text class="field" x="755" y="1142" data-column="allow_resume">allow_resume: boolean</text>
+<text class="field" x="755" y="1172" data-column="created_at">created_at: timestamptz</text>
+<text class="field" x="755" y="1202" data-column="updated_at">updated_at: timestamptz</text>
+</g>
+<g class="entity" data-table="quest_points">
+<rect x="1360" y="800" width="500" height="370" fill="white" stroke="#a8a8a8" stroke-width="1.3"/>
+<rect x="1360" y="800" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3"/>
+<text class="head" x="1375" y="833">quest_points</text>
+<text class="field" x="1375" y="872" data-column="id">id: int (PK)</text>
+<text class="field" x="1375" y="902" data-column="quest_id">quest_id: int (FK)</text>
+<text class="field" x="1375" y="932" data-column="name">name: varchar(150)</text>
+<text class="field" x="1375" y="962" data-column="description">description: text</text>
+<text class="field" x="1375" y="992" data-column="image">image: varchar(500)</text>
+<text class="field" x="1375" y="1022" data-column="audio">audio: varchar(500)</text>
+<text class="field" x="1375" y="1052" data-column="latitude">latitude: numeric(10,7)</text>
+<text class="field" x="1375" y="1082" data-column="longitude">longitude: numeric(10,7)</text>
+<text class="field" x="1375" y="1112" data-column="sort_order">sort_order: int</text>
+<text class="field" x="1375" y="1142" data-column="status">status: varchar(20)</text>
+</g>
+<g class="entity" data-table="tasks">
+<rect x="1980" y="850" width="500" height="280" fill="white" stroke="#a8a8a8" stroke-width="1.3"/>
+<rect x="1980" y="850" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3"/>
+<text class="head" x="1995" y="883">tasks</text>
+<text class="field" x="1995" y="922" data-column="id">id: int (PK)</text>
+<text class="field" x="1995" y="952" data-column="quest_point_id">quest_point_id: int (FK)</text>
+<text class="field" x="1995" y="982" data-column="task_type_id">task_type_id: int (FK)</text>
+<text class="field" x="1995" y="1012" data-column="selection_mode">selection_mode: varchar(30)</text>
+<text class="field" x="1995" y="1042" data-column="text">text: text</text>
+<text class="field" x="1995" y="1072" data-column="correct_answer">correct_answer: text</text>
+<text class="field" x="1995" y="1102" data-column="hint_type">hint_type: text</text>
+</g>
+<g class="entity" data-table="task_types">
+<rect x="2600" y="850" width="500" height="130" fill="white" stroke="#a8a8a8" stroke-width="1.3"/>
+<rect x="2600" y="850" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3"/>
+<text class="head" x="2615" y="883">task_types</text>
+<text class="field" x="2615" y="922" data-column="id">id: int (PK)</text>
+<text class="field" x="2615" y="952" data-column="name">name: varchar(100)</text>
 </g>
 <g class="entity" data-table="session_events">
-<rect x="880" y="1580" width="560" height="311" rx="8" fill="white" stroke="#ccd6e2" stroke-width="1.4"/>
-<path d="M888,1580 H1432 Q1440,1580 1440,1588 V1645 H880 V1588 Q880,1580 888,1580" fill="#f0edfa"/>
-<rect x="880" y="1592" width="4" height="41" rx="2" fill="#8e80af"/>
-<text class="head" x="904" y="1621">session_events</text>
-<path d="M880 1645 H1440" stroke="#dce3ec"/>
-<rect x="887" y="1652" width="41" height="19" rx="4" fill="#e5f2ee"/><text x="907.5" y="1665.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#3d7964">PK</text>
-<text class="field" x="936" y="1667">id</text>
-<text class="type" x="1416" y="1667" text-anchor="end">int</text>
-<rect x="881" y="1677" width="558" height="32" fill="#fafbfd"/>
-<rect x="887" y="1684" width="41" height="19" rx="4" fill="#fff1d9"/><text x="907.5" y="1697.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#a47623">FK</text>
-<text class="field" x="936" y="1699">quest_session_id</text>
-<text class="type" x="1416" y="1699" text-anchor="end">int</text>
-<rect x="887" y="1716" width="41" height="19" rx="4" fill="#fff1d9"/><text x="907.5" y="1729.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#a47623">FK</text>
-<text class="field" x="936" y="1731">quest_id</text>
-<text class="type" x="1416" y="1731" text-anchor="end">int</text>
-<rect x="881" y="1741" width="558" height="32" fill="#fafbfd"/>
-<rect x="887" y="1748" width="41" height="19" rx="4" fill="#fff1d9"/><text x="907.5" y="1761.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#a47623">FK</text>
-<text class="field" x="936" y="1763">quest_point_id</text>
-<text class="type" x="1416" y="1763" text-anchor="end">int</text>
-<text class="field" x="936" y="1795">event_type</text>
-<text class="type" x="1416" y="1795" text-anchor="end">varchar(50)</text>
-<rect x="881" y="1805" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="936" y="1827">occurred_at</text>
-<text class="type" x="1416" y="1827" text-anchor="end">timestamptz</text>
-<text class="field" x="936" y="1859">extra_data</text>
-<text class="type" x="1416" y="1859" text-anchor="end">text</text>
-</g>
-<g class="entity" data-table="participant_answers">
-<rect x="1660" y="1580" width="560" height="311" rx="8" fill="white" stroke="#ccd6e2" stroke-width="1.4"/>
-<path d="M1668,1580 H2212 Q2220,1580 2220,1588 V1645 H1660 V1588 Q1660,1580 1668,1580" fill="#f0edfa"/>
-<rect x="1660" y="1592" width="4" height="41" rx="2" fill="#8e80af"/>
-<text class="head" x="1684" y="1621">participant_answers</text>
-<path d="M1660 1645 H2220" stroke="#dce3ec"/>
-<rect x="1667" y="1652" width="41" height="19" rx="4" fill="#e5f2ee"/><text x="1687.5" y="1665.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#3d7964">PK</text>
-<text class="field" x="1716" y="1667">id</text>
-<text class="type" x="2196" y="1667" text-anchor="end">int</text>
-<rect x="1661" y="1677" width="558" height="32" fill="#fafbfd"/>
-<rect x="1667" y="1684" width="41" height="19" rx="4" fill="#fff1d9"/><text x="1687.5" y="1697.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#a47623">FK</text>
-<text class="field" x="1716" y="1699">quest_session_id</text>
-<text class="type" x="2196" y="1699" text-anchor="end">int</text>
-<rect x="1667" y="1716" width="41" height="19" rx="4" fill="#fff1d9"/><text x="1687.5" y="1729.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#a47623">FK</text>
-<text class="field" x="1716" y="1731">task_id</text>
-<text class="type" x="2196" y="1731" text-anchor="end">int</text>
-<rect x="1661" y="1741" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="1716" y="1763">answer</text>
-<text class="type" x="2196" y="1763" text-anchor="end">text</text>
-<text class="field" x="1716" y="1795">attempt_number</text>
-<text class="type" x="2196" y="1795" text-anchor="end">int</text>
-<rect x="1661" y="1805" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="1716" y="1827">is_correct</text>
-<text class="type" x="2196" y="1827" text-anchor="end">boolean</text>
-<text class="field" x="1716" y="1859">answered_at</text>
-<text class="type" x="2196" y="1859" text-anchor="end">timestamptz</text>
-</g>
-<g class="entity" data-table="tags">
-<rect x="2440" y="1580" width="560" height="151" rx="8" fill="white" stroke="#ccd6e2" stroke-width="1.4"/>
-<path d="M2448,1580 H2992 Q3000,1580 3000,1588 V1645 H2440 V1588 Q2440,1580 2448,1580" fill="#edf0f4"/>
-<rect x="2440" y="1592" width="4" height="41" rx="2" fill="#8796a9"/>
-<text class="head" x="2464" y="1621">tags</text>
-<path d="M2440 1645 H3000" stroke="#dce3ec"/>
-<rect x="2447" y="1652" width="41" height="19" rx="4" fill="#e5f2ee"/><text x="2467.5" y="1665.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#3d7964">PK</text>
-<text class="field" x="2496" y="1667">id</text>
-<text class="type" x="2976" y="1667" text-anchor="end">int</text>
-<rect x="2441" y="1677" width="558" height="32" fill="#fafbfd"/>
-<text class="field" x="2496" y="1699">name</text>
-<text class="type" x="2976" y="1699" text-anchor="end">varchar(100)</text>
+<rect x="120" y="1430" width="500" height="280" fill="white" stroke="#a8a8a8" stroke-width="1.3"/>
+<rect x="120" y="1430" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3"/>
+<text class="head" x="135" y="1463">session_events</text>
+<text class="field" x="135" y="1502" data-column="id">id: int (PK)</text>
+<text class="field" x="135" y="1532" data-column="quest_session_id">quest_session_id: int (FK)</text>
+<text class="field" x="135" y="1562" data-column="quest_id">quest_id: int (FK)</text>
+<text class="field" x="135" y="1592" data-column="quest_point_id">quest_point_id: int (FK) NULL</text>
+<text class="field" x="135" y="1622" data-column="event_type">event_type: varchar(50)</text>
+<text class="field" x="135" y="1652" data-column="occurred_at">occurred_at: timestamptz</text>
+<text class="field" x="135" y="1682" data-column="extra_data">extra_data: text</text>
 </g>
 <g class="entity" data-table="quest_tags">
-<rect x="2440" y="1880" width="560" height="151" rx="8" fill="white" stroke="#ccd6e2" stroke-width="1.4"/>
-<path d="M2448,1880 H2992 Q3000,1880 3000,1888 V1945 H2440 V1888 Q2440,1880 2448,1880" fill="#edf0f4"/>
-<rect x="2440" y="1892" width="4" height="41" rx="2" fill="#8796a9"/>
-<text class="head" x="2464" y="1921">quest_tags</text>
-<path d="M2440 1945 H3000" stroke="#dce3ec"/>
-<rect x="2447" y="1952" width="41" height="19" rx="4" fill="#e5f2ee"/><text x="2467.5" y="1965.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#3d7964">PK/FK</text>
-<text class="field" x="2496" y="1967">quest_id</text>
-<text class="type" x="2976" y="1967" text-anchor="end">int</text>
-<rect x="2441" y="1977" width="558" height="32" fill="#fafbfd"/>
-<rect x="2447" y="1984" width="41" height="19" rx="4" fill="#e5f2ee"/><text x="2467.5" y="1997.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#3d7964">PK/FK</text>
-<text class="field" x="2496" y="1999">tag_id</text>
-<text class="type" x="2976" y="1999" text-anchor="end">int</text>
+<rect x="740" y="1390" width="500" height="130" fill="white" stroke="#a8a8a8" stroke-width="1.3"/>
+<rect x="740" y="1390" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3"/>
+<text class="head" x="755" y="1423">quest_tags</text>
+<text class="field" x="755" y="1462" data-column="quest_id">quest_id: int (PK, FK)</text>
+<text class="field" x="755" y="1492" data-column="tag_id">tag_id: int (PK, FK)</text>
 </g>
-<path d="M100 2170 H3000" stroke="#dde4ed"/>
-<text x="100" y="2212" font-size="16" fill="#64748b">PK  Primary key       FK  Foreign key       Arrows: primary key → foreign key (one-to-many)</text>
-<text x="3000" y="2212" text-anchor="end" font-size="16" fill="#64748b">Dashed connector: optional reference · Media fields store file paths or URLs</text>
+<g class="entity" data-table="tags">
+<rect x="740" y="1690" width="500" height="130" fill="white" stroke="#a8a8a8" stroke-width="1.3"/>
+<rect x="740" y="1690" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3"/>
+<text class="head" x="755" y="1723">tags</text>
+<text class="field" x="755" y="1762" data-column="id">id: int (PK)</text>
+<text class="field" x="755" y="1792" data-column="name">name: varchar(100)</text>
+</g>
+<g class="entity" data-table="participant_answers">
+<rect x="1360" y="1780" width="500" height="280" fill="white" stroke="#a8a8a8" stroke-width="1.3"/>
+<rect x="1360" y="1780" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3"/>
+<text class="head" x="1375" y="1813">participant_answers</text>
+<text class="field" x="1375" y="1852" data-column="id">id: int (PK)</text>
+<text class="field" x="1375" y="1882" data-column="quest_session_id">quest_session_id: int (FK)</text>
+<text class="field" x="1375" y="1912" data-column="task_id">task_id: int (FK)</text>
+<text class="field" x="1375" y="1942" data-column="answer">answer: text</text>
+<text class="field" x="1375" y="1972" data-column="attempt_number">attempt_number: int</text>
+<text class="field" x="1375" y="2002" data-column="is_correct">is_correct: boolean</text>
+<text class="field" x="1375" y="2032" data-column="answered_at">answered_at: timestamptz</text>
+</g>
+<circle class="many" data-child="cooperation_requests" data-field="user_id" cx="2597" cy="295.0" r="6" fill="#222"/>
+<circle class="many" data-child="subscriptions" data-field="organizer_id" cx="1357" cy="295.0" r="6" fill="#222"/>
+<circle class="many" data-child="subscriptions" data-field="tariff_id" cx="1863" cy="325.0" r="6" fill="#222"/>
+<circle class="many" data-child="cooperation_requests" data-field="tariff_id" cx="2597" cy="325.0" r="6" fill="#222"/>
+<circle class="many" data-child="subscriptions" data-field="cooperation_request_id" cx="1863" cy="355.0" r="6" fill="#222"/>
+<circle class="many" data-child="quests" data-field="organizer_id" cx="737" cy="895.0" r="6" fill="#222"/>
+<circle class="many" data-child="quest_sessions" data-field="user_id" cx="623" cy="925.0" r="6" fill="#222"/>
+<circle class="many" data-child="quest_sessions" data-field="quest_id" cx="623" cy="895.0" r="6" fill="#222"/>
+<circle class="many" data-child="quest_points" data-field="quest_id" cx="1357" cy="895.0" r="6" fill="#222"/>
+<circle class="many" data-child="tasks" data-field="quest_point_id" cx="1977" cy="945.0" r="6" fill="#222"/>
+<circle class="many" data-child="tasks" data-field="task_type_id" cx="2483" cy="975.0" r="6" fill="#222"/>
+<circle class="many" data-child="quest_tags" data-field="quest_id" cx="1243" cy="1455.0" r="6" fill="#222"/>
+<circle class="many" data-child="quest_tags" data-field="tag_id" cx="737" cy="1485.0" r="6" fill="#222"/>
+<circle class="many" data-child="quest_sessions" data-field="current_quest_point_id" cx="623" cy="985.0" r="6" fill="#222"/>
+<circle class="many" data-child="session_events" data-field="quest_session_id" cx="117" cy="1525.0" r="6" fill="#222"/>
+<circle class="many" data-child="participant_answers" data-field="quest_session_id" cx="1357" cy="1875.0" r="6" fill="#222"/>
+<circle class="many" data-child="participant_answers" data-field="task_id" cx="1863" cy="1905.0" r="6" fill="#222"/>
+<circle class="many" data-child="session_events" data-field="quest_id" cx="117" cy="1555.0" r="6" fill="#222"/>
+<circle class="many" data-child="session_events" data-field="quest_point_id" cx="623" cy="1585.0" r="6" fill="#222"/>
+<path d="M120 2170 H3110" stroke="#dedede"/>
+<circle cx="135" cy="2200" r="6" fill="#222"/><text class="legend" x="155" y="2206">Many</text>
+<path d="M300 2200 H370" stroke="#888" stroke-width="1.5"/><text class="legend" x="385" y="2206">Mandatory FK (NOT NULL)</text>
+<path d="M755 2200 H825" stroke="#888" stroke-width="1.5" stroke-dasharray="7 5"/><text class="legend" x="840" y="2206">Optional FK (NULL allowed)</text>
+<text class="legend" x="3110" y="2206" text-anchor="end">PK — primary key · FK — foreign key</text>
 </svg>
