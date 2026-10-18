@@ -21,8 +21,7 @@
 <g class="relationship" data-parent="quest_sessions" data-child="session_events" data-field="quest_session_id" data-optional="false"><title>quest_sessions.id — session_events.quest_session_id</title><path d="M 120,865 L 80,865 L 80,1525 L 120,1525" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round"/></g>
 <g class="relationship" data-parent="quest_sessions" data-child="participant_answers" data-field="quest_session_id" data-optional="false"><title>quest_sessions.id — participant_answers.quest_session_id</title><path d="M 120,865 L 40,865 L 40,2120 L 1320,2120 L 1320,1875 L 1360,1875" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round"/></g>
 <g class="relationship" data-parent="tasks" data-child="participant_answers" data-field="task_id" data-optional="false"><title>tasks.id — participant_answers.task_id</title><path d="M 1980,915 L 1940,915 L 1940,1905 L 1860,1905" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round"/></g>
-<g class="relationship" data-parent="quests" data-child="session_events" data-field="quest_id" data-optional="false"><title>quests.id — session_events.quest_id</title><path d="M 740,865 L 720,865 L 720,1260 L 60,1260 L 60,1555 L 120,1555" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round"/></g>
-<g class="relationship" data-parent="quest_points" data-child="session_events" data-field="quest_point_id" data-optional="true"><title>quest_points.id — session_events.quest_point_id</title><path d="M 1360,865 L 1340,865 L 1340,1360 L 650,1360 L 650,1585 L 620,1585" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="7 5"/></g>
+<g class="relationship" data-parent="quest_points" data-child="session_events" data-field="quest_point_id" data-optional="true"><title>quest_points.id — session_events.quest_point_id</title><path d="M 1360,865 L 1340,865 L 1340,1360 L 650,1360 L 650,1555 L 620,1555" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="7 5"/></g>
 <g class="entity" data-table="users">
 <rect x="740" y="200" width="500" height="280" fill="white" stroke="#a8a8a8" stroke-width="1.3"/>
 <rect x="740" y="200" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3"/>
@@ -140,16 +139,15 @@
 <text class="field" x="2615" y="952" data-column="name">name: varchar(100)</text>
 </g>
 <g class="entity" data-table="session_events">
-<rect x="120" y="1430" width="500" height="280" fill="white" stroke="#a8a8a8" stroke-width="1.3"/>
+<rect x="120" y="1430" width="500" height="250" fill="white" stroke="#a8a8a8" stroke-width="1.3"/>
 <rect x="120" y="1430" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3"/>
 <text class="head" x="135" y="1463">session_events</text>
 <text class="field" x="135" y="1502" data-column="id">id: int (PK)</text>
 <text class="field" x="135" y="1532" data-column="quest_session_id">quest_session_id: int (FK)</text>
-<text class="field" x="135" y="1562" data-column="quest_id">quest_id: int (FK)</text>
-<text class="field" x="135" y="1592" data-column="quest_point_id">quest_point_id: int (FK) NULL</text>
-<text class="field" x="135" y="1622" data-column="event_type">event_type: varchar(50)</text>
-<text class="field" x="135" y="1652" data-column="occurred_at">occurred_at: timestamptz</text>
-<text class="field" x="135" y="1682" data-column="extra_data">extra_data: text</text>
+<text class="field" x="135" y="1562" data-column="quest_point_id">quest_point_id: int (FK) NULL</text>
+<text class="field" x="135" y="1592" data-column="event_type">event_type: varchar(50)</text>
+<text class="field" x="135" y="1622" data-column="occurred_at">occurred_at: timestamptz</text>
+<text class="field" x="135" y="1652" data-column="extra_data">extra_data: text</text>
 </g>
 <g class="entity" data-table="quest_tags">
 <rect x="740" y="1390" width="500" height="130" fill="white" stroke="#a8a8a8" stroke-width="1.3"/>
@@ -194,8 +192,7 @@
 <circle class="many" data-child="session_events" data-field="quest_session_id" cx="117" cy="1525.0" r="6" fill="#222"/>
 <circle class="many" data-child="participant_answers" data-field="quest_session_id" cx="1357" cy="1875.0" r="6" fill="#222"/>
 <circle class="many" data-child="participant_answers" data-field="task_id" cx="1863" cy="1905.0" r="6" fill="#222"/>
-<circle class="many" data-child="session_events" data-field="quest_id" cx="117" cy="1555.0" r="6" fill="#222"/>
-<circle class="many" data-child="session_events" data-field="quest_point_id" cx="623" cy="1585.0" r="6" fill="#222"/>
+<circle class="many" data-child="session_events" data-field="quest_point_id" cx="623" cy="1555.0" r="6" fill="#222"/>
 <path d="M120 2170 H3110" stroke="#dedede"/>
 <circle cx="135" cy="2200" r="6" fill="#222"/><text class="legend" x="155" y="2206">Many</text>
 <path d="M300 2200 H370" stroke="#888" stroke-width="1.5"/><text class="legend" x="385" y="2206">Mandatory FK (NOT NULL)</text>
