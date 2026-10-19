@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="3230" height="2230" viewBox="0 0 3230 2230" role="img" aria-labelledby="title desc">
+<title id="title">Модель данных — пояснение всех связей</title>
+<desc id="desc">13 tables. Filled dot means many. Solid means mandatory foreign key; dashed means optional foreign key. A request requires a nonblank service or a tariff, or both.</desc>
+<rect width="3230" height="2230" fill="white" />
+<style>text{font-family:"DejaVu Sans",Arial,sans-serif;fill:#222} .field{font-size:18px} .head{font-size:22px;font-weight:600} .legend{font-size:18px;fill:#444}</style>
+<text x="1615" y="65" font-size="38" text-anchor="middle">Модель данных — пояснение связей</text>
+<g class="relationship" data-parent="users" data-child="cooperation_requests" data-field="user_id" data-optional="false"><title>users.id — cooperation_requests.user_id</title><path d="M 1240,265 L 1280,265 L 1280,115 L 2560,115 L 2560,295 L 2600,295" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round" /></g>
+<g class="relationship" data-parent="users" data-child="subscriptions" data-field="organizer_id" data-optional="false"><title>users.id — subscriptions.organizer_id</title><path d="M 1240,265 L 1300,265 L 1300,295 L 1360,295" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round" /></g>
+<g class="relationship" data-parent="tariffs" data-child="subscriptions" data-field="tariff_id" data-optional="false"><title>tariffs.id — subscriptions.tariff_id</title><path d="M 1980,265 L 1920,265 L 1920,325 L 1860,325" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round" /></g>
+<g class="relationship" data-parent="tariffs" data-child="cooperation_requests" data-field="tariff_id" data-optional="true"><title>tariffs.id — cooperation_requests.tariff_id</title><path d="M 2480,265 L 2540,265 L 2540,325 L 2600,325" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="7 5" /></g>
+<g class="relationship" data-parent="cooperation_requests" data-child="subscriptions" data-field="cooperation_request_id" data-optional="false"><title>cooperation_requests.id — subscriptions.cooperation_request_id</title><path d="M 2600,265 L 2500,265 L 2500,650 L 1900,650 L 1900,355 L 1860,355" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round" /></g>
+<g class="relationship" data-parent="users" data-child="quests" data-field="organizer_id" data-optional="false"><title>users.id — quests.organizer_id</title><path d="M 740,265 L 700,265 L 700,895 L 740,895" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round" /></g>
+<g class="relationship" data-parent="users" data-child="quest_sessions" data-field="user_id" data-optional="true"><title>users.id — quest_sessions.user_id</title><path d="M 740,265 L 660,265 L 660,925 L 620,925" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="7 5" /></g>
+<g class="relationship" data-parent="quests" data-child="quest_sessions" data-field="quest_id" data-optional="false"><title>quests.id — quest_sessions.quest_id</title><path d="M 740,865 L 680,865 L 680,895 L 620,895" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round" /></g>
+<g class="relationship" data-parent="quests" data-child="quest_points" data-field="quest_id" data-optional="false"><title>quests.id — quest_points.quest_id</title><path d="M 1240,865 L 1300,865 L 1300,895 L 1360,895" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round" /></g>
+<g class="relationship" data-parent="quest_points" data-child="tasks" data-field="quest_point_id" data-optional="false"><title>quest_points.id — tasks.quest_point_id</title><path d="M 1860,865 L 1920,865 L 1920,945 L 1980,945" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round" /></g>
+<g class="relationship" data-parent="task_types" data-child="tasks" data-field="task_type_id" data-optional="false"><title>task_types.id — tasks.task_type_id</title><path d="M 2600,915 L 2540,915 L 2540,975 L 2480,975" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round" /></g>
+<g class="relationship" data-parent="quests" data-child="quest_tags" data-field="quest_id" data-optional="false"><title>quests.id — quest_tags.quest_id</title><path d="M 1240,865 L 1260,865 L 1260,1455 L 1240,1455" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round" /></g>
+<g class="relationship" data-parent="tags" data-child="quest_tags" data-field="tag_id" data-optional="false"><title>tags.id — quest_tags.tag_id</title><path d="M 740,1755 L 700,1755 L 700,1485 L 740,1485" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round" /></g>
+<g class="relationship" data-parent="quest_points" data-child="quest_sessions" data-field="current_quest_point_id" data-optional="true"><title>quest_points.id — quest_sessions.current_quest_point_id</title><path d="M 1360,865 L 1320,865 L 1320,1340 L 640,1340 L 640,985 L 620,985" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="7 5" /></g>
+<g class="relationship" data-parent="quest_sessions" data-child="session_events" data-field="quest_session_id" data-optional="false"><title>quest_sessions.id — session_events.quest_session_id</title><path d="M 120,865 L 80,865 L 80,1525 L 120,1525" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round" /></g>
+<g class="relationship" data-parent="quest_sessions" data-child="participant_answers" data-field="quest_session_id" data-optional="false"><title>quest_sessions.id — participant_answers.quest_session_id</title><path d="M 120,865 L 40,865 L 40,2120 L 1320,2120 L 1320,1875 L 1360,1875" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round" /></g>
+<g class="relationship" data-parent="tasks" data-child="participant_answers" data-field="task_id" data-optional="false"><title>tasks.id — participant_answers.task_id</title><path d="M 1980,915 L 1940,915 L 1940,1905 L 1860,1905" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round" /></g>
+<g class="relationship" data-parent="quest_points" data-child="session_events" data-field="quest_point_id" data-optional="true"><title>quest_points.id — session_events.quest_point_id</title><path d="M 1360,865 L 1340,865 L 1340,1360 L 650,1360 L 650,1555 L 620,1555" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="7 5" /></g>
+<g class="entity" data-table="users">
+<rect x="740" y="200" width="500" height="392" fill="white" stroke="#a8a8a8" stroke-width="1.3" />
+<rect x="740" y="200" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3" />
+<text class="head" x="755" y="233">users</text>
+<text class="field" x="755" y="272" data-column="id">id: int (PK)</text>
+<text class="field" x="755" y="302" data-column="email">email: varchar(254)</text>
+<text class="field" x="755" y="332" data-column="password_hash">password_hash: varchar(254)</text>
+<text class="field" x="755" y="362" data-column="phone">phone: varchar(20)</text>
+<text class="field" x="755" y="392" data-column="region">region: varchar(100)</text>
+<text class="field" x="755" y="422" data-column="role">role: enum (</text>
+<text class="enum-value" x="775" y="446" font-size="17">"участник",</text>
+<text class="enum-value" x="775" y="470" font-size="17">"организатор 1-го уровня",</text>
+<text class="enum-value" x="775" y="494" font-size="17">"организатор 2-го уровня",</text>
+<text class="enum-value" x="775" y="518" font-size="17">"администратор")</text>
+<text class="field" x="755" y="564" data-column="registered_at">registered_at: timestamptz</text>
+</g>
+<g class="entity" data-table="subscriptions">
+<rect x="1360" y="200" width="500" height="250" fill="white" stroke="#a8a8a8" stroke-width="1.3" />
+<rect x="1360" y="200" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3" />
+<text class="head" x="1375" y="233">subscriptions</text>
+<text class="field" x="1375" y="272" data-column="id">id: int (PK)</text>
+<text class="field" x="1375" y="302" data-column="organizer_id">organizer_id: int (FK)</text>
+<text class="field" x="1375" y="332" data-column="tariff_id">tariff_id: int (FK)</text>
+<text class="field" x="1375" y="362" data-column="cooperation_request_id">cooperation_request_id: int (FK)</text>
+<text class="field" x="1375" y="392" data-column="starts_at">starts_at: timestamptz</text>
+<text class="field" x="1375" y="422" data-column="ends_at">ends_at: timestamptz</text>
+</g>
+<g class="entity" data-table="tariffs">
+<rect x="1980" y="200" width="500" height="220" fill="white" stroke="#a8a8a8" stroke-width="1.3" />
+<rect x="1980" y="200" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3" />
+<text class="head" x="1995" y="233">tariffs</text>
+<text class="field" x="1995" y="272" data-column="id">id: int (PK)</text>
+<text class="field" x="1995" y="302" data-column="name">name: varchar(150)</text>
+<text class="field" x="1995" y="332" data-column="monthly_price">monthly_price: numeric(12,2)</text>
+<text class="field" x="1995" y="362" data-column="description">description: text</text>
+<text class="field" x="1995" y="392" data-column="max_quests">max_quests: int</text>
+</g>
+<g class="entity" data-table="cooperation_requests">
+<rect x="2600" y="200" width="500" height="408" fill="white" stroke="#a8a8a8" stroke-width="1.3" />
+<rect x="2600" y="200" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3" />
+<text class="head" x="2615" y="233">cooperation_requests</text>
+<text class="field" x="2615" y="272" data-column="id">id: int (PK)</text>
+<text class="field" x="2615" y="302" data-column="user_id">user_id: int (FK)</text>
+<text class="field" x="2615" y="332" data-column="tariff_id">tariff_id: int (FK) NULL</text>
+<text class="field" x="2615" y="362" data-column="service">service: text</text>
+<text class="field" x="2615" y="392" data-column="email">email: varchar(254)</text>
+<text class="field" x="2615" y="422" data-column="phone">phone: varchar(20)</text>
+<text class="field" x="2615" y="452" data-column="contact_person">contact_person: text</text>
+<text class="field" x="2615" y="482" data-column="submitted_at">submitted_at: timestamptz</text>
+<text class="field" x="2615" y="512" data-column="status">status: varchar(20)</text>
+<path d="M2615 529 H3085" stroke="#d4d4d4" />
+<text x="2615" y="556" font-size="17">Required: service or tariff_id</text>
+<text x="2615" y="582" font-size="17">Without a tariff, service must be nonblank.</text>
+</g>
+<g class="entity" data-table="quest_sessions">
+<rect x="120" y="800" width="500" height="370" fill="white" stroke="#a8a8a8" stroke-width="1.3" />
+<rect x="120" y="800" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3" />
+<text class="head" x="135" y="833">quest_sessions</text>
+<text class="field" x="135" y="872" data-column="id">id: int (PK)</text>
+<text class="field" x="135" y="902" data-column="quest_id">quest_id: int (FK)</text>
+<text class="field" x="135" y="932" data-column="user_id">user_id: int (FK) NULL</text>
+<text class="field" x="135" y="962" data-column="anonymous_id">anonymous_id: varchar(100)</text>
+<text class="field" x="135" y="992" data-column="current_quest_point_id">current_quest_point_id: int (FK) NULL</text>
+<text class="field" x="135" y="1022" data-column="started_at">started_at: timestamptz</text>
+<text class="field" x="135" y="1052" data-column="completed_at">completed_at: timestamptz</text>
+<text class="field" x="135" y="1082" data-column="last_activity_at">last_activity_at: timestamptz</text>
+<text class="field" x="135" y="1112" data-column="progress">progress: int</text>
+<text class="field" x="135" y="1142" data-column="status">status: varchar(30)</text>
+</g>
+<g class="entity" data-table="quests">
+<rect x="740" y="800" width="500" height="518" fill="white" stroke="#a8a8a8" stroke-width="1.3" />
+<rect x="740" y="800" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3" />
+<text class="head" x="755" y="833">quests</text>
+<text class="field" x="755" y="872" data-column="id">id: int (PK)</text>
+<text class="field" x="755" y="902" data-column="organizer_id">organizer_id: int (FK)</text>
+<text class="field" x="755" y="932" data-column="name">name: varchar(150)</text>
+<text class="field" x="755" y="962" data-column="description">description: text</text>
+<text class="field" x="755" y="992" data-column="image">image: varchar(500)</text>
+<text class="field" x="755" y="1022" data-column="distance">distance: text</text>
+<text class="field" x="755" y="1052" data-column="estimated_duration">estimated_duration: text</text>
+<text class="field" x="755" y="1082" data-column="status">status: enum (</text>
+<text class="enum-value" x="775" y="1106" font-size="17">"черновик",</text>
+<text class="enum-value" x="775" y="1130" font-size="17">"опубликован",</text>
+<text class="enum-value" x="775" y="1154" font-size="17">"архивирован")</text>
+<text class="field" x="755" y="1200" data-column="access_type">access_type: varchar(150)</text>
+<text class="field" x="755" y="1230" data-column="allow_resume">allow_resume: boolean</text>
+<text class="field" x="755" y="1260" data-column="created_at">created_at: timestamptz</text>
+<text class="field" x="755" y="1290" data-column="updated_at">updated_at: timestamptz</text>
+</g>
+<g class="entity" data-table="quest_points">
+<rect x="1360" y="800" width="500" height="458" fill="white" stroke="#a8a8a8" stroke-width="1.3" />
+<rect x="1360" y="800" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3" />
+<text class="head" x="1375" y="833">quest_points</text>
+<text class="field" x="1375" y="872" data-column="id">id: int (PK)</text>
+<text class="field" x="1375" y="902" data-column="quest_id">quest_id: int (FK)</text>
+<text class="field" x="1375" y="932" data-column="name">name: varchar(150)</text>
+<text class="field" x="1375" y="962" data-column="description">description: text</text>
+<text class="field" x="1375" y="992" data-column="image">image: varchar(500)</text>
+<text class="field" x="1375" y="1022" data-column="audio">audio: varchar(500)</text>
+<text class="field" x="1375" y="1052" data-column="latitude">latitude: numeric(10,7)</text>
+<text class="field" x="1375" y="1082" data-column="longitude">longitude: numeric(10,7)</text>
+<text class="field" x="1375" y="1112" data-column="sort_order">sort_order: int</text>
+<text class="field" x="1375" y="1142" data-column="status">status: enum (</text>
+<text class="enum-value" x="1395" y="1166" font-size="17">"черновик",</text>
+<text class="enum-value" x="1395" y="1190" font-size="17">"опубликован",</text>
+<text class="enum-value" x="1395" y="1214" font-size="17">"архивирован")</text>
+</g>
+<g class="entity" data-table="tasks">
+<rect x="1980" y="850" width="500" height="280" fill="white" stroke="#a8a8a8" stroke-width="1.3" />
+<rect x="1980" y="850" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3" />
+<text class="head" x="1995" y="883">tasks</text>
+<text class="field" x="1995" y="922" data-column="id">id: int (PK)</text>
+<text class="field" x="1995" y="952" data-column="quest_point_id">quest_point_id: int (FK)</text>
+<text class="field" x="1995" y="982" data-column="task_type_id">task_type_id: int (FK)</text>
+<text class="field" x="1995" y="1012" data-column="selection_mode">selection_mode: varchar(30)</text>
+<text class="field" x="1995" y="1042" data-column="text">text: text</text>
+<text class="field" x="1995" y="1072" data-column="correct_answer">correct_answer: text</text>
+<text class="field" x="1995" y="1102" data-column="hint_type">hint_type: text</text>
+</g>
+<g class="entity" data-table="task_types">
+<rect x="2600" y="850" width="500" height="130" fill="white" stroke="#a8a8a8" stroke-width="1.3" />
+<rect x="2600" y="850" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3" />
+<text class="head" x="2615" y="883">task_types</text>
+<text class="field" x="2615" y="922" data-column="id">id: int (PK)</text>
+<text class="field" x="2615" y="952" data-column="name">name: varchar(100)</text>
+</g>
+<g class="entity" data-table="session_events">
+<rect x="120" y="1430" width="500" height="250" fill="white" stroke="#a8a8a8" stroke-width="1.3" />
+<rect x="120" y="1430" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3" />
+<text class="head" x="135" y="1463">session_events</text>
+<text class="field" x="135" y="1502" data-column="id">id: int (PK)</text>
+<text class="field" x="135" y="1532" data-column="quest_session_id">quest_session_id: int (FK)</text>
+<text class="field" x="135" y="1562" data-column="quest_point_id">quest_point_id: int (FK) NULL</text>
+<text class="field" x="135" y="1592" data-column="event_type">event_type: varchar(50)</text>
+<text class="field" x="135" y="1622" data-column="occurred_at">occurred_at: timestamptz</text>
+<text class="field" x="135" y="1652" data-column="extra_data">extra_data: text</text>
+</g>
+<g class="entity" data-table="quest_tags">
+<rect x="740" y="1390" width="500" height="130" fill="white" stroke="#a8a8a8" stroke-width="1.3" />
+<rect x="740" y="1390" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3" />
+<text class="head" x="755" y="1423">quest_tags</text>
+<text class="field" x="755" y="1462" data-column="quest_id">quest_id: int (PK, FK)</text>
+<text class="field" x="755" y="1492" data-column="tag_id">tag_id: int (PK, FK)</text>
+</g>
+<g class="entity" data-table="tags">
+<rect x="740" y="1690" width="500" height="130" fill="white" stroke="#a8a8a8" stroke-width="1.3" />
+<rect x="740" y="1690" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3" />
+<text class="head" x="755" y="1723">tags</text>
+<text class="field" x="755" y="1762" data-column="id">id: int (PK)</text>
+<text class="field" x="755" y="1792" data-column="name">name: varchar(100)</text>
+</g>
+<g class="entity" data-table="participant_answers">
+<rect x="1360" y="1780" width="500" height="280" fill="white" stroke="#a8a8a8" stroke-width="1.3" />
+<rect x="1360" y="1780" width="500" height="50" fill="#d9d9d9" stroke="#a8a8a8" stroke-width="1.3" />
+<text class="head" x="1375" y="1813">participant_answers</text>
+<text class="field" x="1375" y="1852" data-column="id">id: int (PK)</text>
+<text class="field" x="1375" y="1882" data-column="quest_session_id">quest_session_id: int (FK)</text>
+<text class="field" x="1375" y="1912" data-column="task_id">task_id: int (FK)</text>
+<text class="field" x="1375" y="1942" data-column="answer">answer: text</text>
+<text class="field" x="1375" y="1972" data-column="attempt_number">attempt_number: int</text>
+<text class="field" x="1375" y="2002" data-column="is_correct">is_correct: boolean</text>
+<text class="field" x="1375" y="2032" data-column="answered_at">answered_at: timestamptz</text>
+</g>
+<circle class="many" data-child="cooperation_requests" data-field="user_id" cx="2597" cy="295.0" r="6" fill="#222" />
+<circle class="many" data-child="subscriptions" data-field="organizer_id" cx="1357" cy="295.0" r="6" fill="#222" />
+<circle class="many" data-child="subscriptions" data-field="tariff_id" cx="1863" cy="325.0" r="6" fill="#222" />
+<circle class="many" data-child="cooperation_requests" data-field="tariff_id" cx="2597" cy="325.0" r="6" fill="#222" />
+<circle class="many" data-child="subscriptions" data-field="cooperation_request_id" cx="1863" cy="355.0" r="6" fill="#222" />
+<circle class="many" data-child="quests" data-field="organizer_id" cx="737" cy="895.0" r="6" fill="#222" />
+<circle class="many" data-child="quest_sessions" data-field="user_id" cx="623" cy="925.0" r="6" fill="#222" />
+<circle class="many" data-child="quest_sessions" data-field="quest_id" cx="623" cy="895.0" r="6" fill="#222" />
+<circle class="many" data-child="quest_points" data-field="quest_id" cx="1357" cy="895.0" r="6" fill="#222" />
+<circle class="many" data-child="tasks" data-field="quest_point_id" cx="1977" cy="945.0" r="6" fill="#222" />
+<circle class="many" data-child="tasks" data-field="task_type_id" cx="2483" cy="975.0" r="6" fill="#222" />
+<circle class="many" data-child="quest_tags" data-field="quest_id" cx="1243" cy="1455.0" r="6" fill="#222" />
+<circle class="many" data-child="quest_tags" data-field="tag_id" cx="737" cy="1485.0" r="6" fill="#222" />
+<circle class="many" data-child="quest_sessions" data-field="current_quest_point_id" cx="623" cy="985.0" r="6" fill="#222" />
+<circle class="many" data-child="session_events" data-field="quest_session_id" cx="117" cy="1525.0" r="6" fill="#222" />
+<circle class="many" data-child="participant_answers" data-field="quest_session_id" cx="1357" cy="1875.0" r="6" fill="#222" />
+<circle class="many" data-child="participant_answers" data-field="task_id" cx="1863" cy="1905.0" r="6" fill="#222" />
+<circle class="many" data-child="session_events" data-field="quest_point_id" cx="623" cy="1555.0" r="6" fill="#222" />
+<path d="M120 2170 H3110" stroke="#dedede" />
+<circle cx="135" cy="2200" r="6" fill="#222" /><text class="legend" x="155" y="2206">Много</text>
+<path d="M300 2200 H370" stroke="#888" stroke-width="1.5" /><text class="legend" x="385" y="2206">Обязательная связь</text>
+<path d="M755 2200 H825" stroke="#888" stroke-width="1.5" stroke-dasharray="7 5" /><text class="legend" x="840" y="2206">Необязательная связь</text>
+<text class="legend" x="3110" y="2206" text-anchor="end">PK — первичный ключ · FK — внешний ключ</text>
+<g class="relationship-number" data-number="1" data-parent="users" data-child="cooperation_requests" data-field="user_id"><rect x="1832" y="101" width="36" height="28" rx="3" fill="white" stroke="#777" stroke-width="1.2" /><text x="1850" y="121" text-anchor="middle" font-size="17" font-weight="700">1</text></g><g class="relationship-number" data-number="2" data-parent="users" data-child="subscriptions" data-field="organizer_id"><rect x="1282" y="271" width="36" height="28" rx="3" fill="white" stroke="#777" stroke-width="1.2" /><text x="1300" y="291" text-anchor="middle" font-size="17" font-weight="700">2</text></g><g class="relationship-number" data-number="3" data-parent="tariffs" data-child="subscriptions" data-field="tariff_id"><rect x="1902" y="291" width="36" height="28" rx="3" fill="white" stroke="#777" stroke-width="1.2" /><text x="1920" y="311" text-anchor="middle" font-size="17" font-weight="700">3</text></g><g class="relationship-number" data-number="4" data-parent="tariffs" data-child="cooperation_requests" data-field="tariff_id"><rect x="2522" y="291" width="36" height="28" rx="3" fill="white" stroke="#777" stroke-width="1.2" /><text x="2540" y="311" text-anchor="middle" font-size="17" font-weight="700">4</text></g><g class="relationship-number" data-number="5" data-parent="cooperation_requests" data-child="subscriptions" data-field="cooperation_request_id"><rect x="2182" y="636" width="36" height="28" rx="3" fill="white" stroke="#777" stroke-width="1.2" /><text x="2200" y="656" text-anchor="middle" font-size="17" font-weight="700">5</text></g><g class="relationship-number" data-number="6" data-parent="users" data-child="quests" data-field="organizer_id"><rect x="682" y="616" width="36" height="28" rx="3" fill="white" stroke="#777" stroke-width="1.2" /><text x="700" y="636" text-anchor="middle" font-size="17" font-weight="700">6</text></g><g class="relationship-number" data-number="7" data-parent="users" data-child="quest_sessions" data-field="user_id"><rect x="642" y="696" width="36" height="28" rx="3" fill="white" stroke="#777" stroke-width="1.2" /><text x="660" y="716" text-anchor="middle" font-size="17" font-weight="700">7</text></g><g class="relationship-number" data-number="8" data-parent="quests" data-child="quest_sessions" data-field="quest_id"><rect x="662" y="866" width="36" height="28" rx="3" fill="white" stroke="#777" stroke-width="1.2" /><text x="680" y="886" text-anchor="middle" font-size="17" font-weight="700">8</text></g><g class="relationship-number" data-number="9" data-parent="quests" data-child="quest_points" data-field="quest_id"><rect x="1282" y="866" width="36" height="28" rx="3" fill="white" stroke="#777" stroke-width="1.2" /><text x="1300" y="886" text-anchor="middle" font-size="17" font-weight="700">9</text></g><g class="relationship-number" data-number="10" data-parent="quest_points" data-child="tasks" data-field="quest_point_id"><rect x="1902" y="896" width="36" height="28" rx="3" fill="white" stroke="#777" stroke-width="1.2" /><text x="1920" y="916" text-anchor="middle" font-size="17" font-weight="700">10</text></g><g class="relationship-number" data-number="11" data-parent="task_types" data-child="tasks" data-field="task_type_id"><rect x="2522" y="946" width="36" height="28" rx="3" fill="white" stroke="#777" stroke-width="1.2" /><text x="2540" y="966" text-anchor="middle" font-size="17" font-weight="700">11</text></g><g class="relationship-number" data-number="12" data-parent="quests" data-child="quest_tags" data-field="quest_id"><rect x="1242" y="1396" width="36" height="28" rx="3" fill="white" stroke="#777" stroke-width="1.2" /><text x="1260" y="1416" text-anchor="middle" font-size="17" font-weight="700">12</text></g><g class="relationship-number" data-number="13" data-parent="tags" data-child="quest_tags" data-field="tag_id"><rect x="682" y="1616" width="36" height="28" rx="3" fill="white" stroke="#777" stroke-width="1.2" /><text x="700" y="1636" text-anchor="middle" font-size="17" font-weight="700">13</text></g><g class="relationship-number" data-number="14" data-parent="quest_points" data-child="quest_sessions" data-field="current_quest_point_id"><rect x="972" y="1326" width="36" height="28" rx="3" fill="white" stroke="#777" stroke-width="1.2" /><text x="990" y="1346" text-anchor="middle" font-size="17" font-weight="700">14</text></g><g class="relationship-number" data-number="15" data-parent="quest_sessions" data-child="session_events" data-field="quest_session_id"><rect x="62" y="1406" width="36" height="28" rx="3" fill="white" stroke="#777" stroke-width="1.2" /><text x="80" y="1426" text-anchor="middle" font-size="17" font-weight="700">15</text></g><g class="relationship-number" data-number="16" data-parent="quest_sessions" data-child="participant_answers" data-field="quest_session_id"><rect x="682" y="2106" width="36" height="28" rx="3" fill="white" stroke="#777" stroke-width="1.2" /><text x="700" y="2126" text-anchor="middle" font-size="17" font-weight="700">16</text></g><g class="relationship-number" data-number="17" data-parent="tasks" data-child="participant_answers" data-field="task_id"><rect x="1922" y="1726" width="36" height="28" rx="3" fill="white" stroke="#777" stroke-width="1.2" /><text x="1940" y="1746" text-anchor="middle" font-size="17" font-weight="700">17</text></g><g class="relationship-number" data-number="18" data-parent="quest_points" data-child="session_events" data-field="quest_point_id"><rect x="1152" y="1346" width="36" height="28" rx="3" fill="white" stroke="#777" stroke-width="1.2" /><text x="1170" y="1366" text-anchor="middle" font-size="17" font-weight="700">18</text></g><g class="explanations"><rect x="2000" y="1175" width="1100" height="955" fill="white" stroke="#b6b6b6" stroke-width="1.1" /><rect x="2000" y="1175" width="1100" height="56" fill="#e5e5e5" /><text x="2025" y="1212" font-size="25" font-weight="600">Все 18 связей: номер на линии = пояснение ниже</text><g class="explanation" data-number="1" data-parent="users" data-child="cooperation_requests" data-field="user_id"><text x="2025" y="1259" font-size="18" font-weight="600">1. users — cooperation_requests</text><text x="2025" y="1280" font-size="17" fill="#444">Пользователь может подать много заявок; у каждой заявки — один автор.</text></g><g class="explanation" data-number="2" data-parent="users" data-child="subscriptions" data-field="organizer_id"><text x="2025" y="1305" font-size="18" font-weight="600">2. users — subscriptions</text><text x="2025" y="1326" font-size="17" fill="#444">У пользователя может быть много подписок в истории; у подписки — один организатор.</text></g><g class="explanation" data-number="3" data-parent="tariffs" data-child="subscriptions" data-field="tariff_id"><text x="2025" y="1351" font-size="18" font-weight="600">3. tariffs — subscriptions</text><text x="2025" y="1372" font-size="17" fill="#444">Один тариф выбирают во многих подписках; в каждой подписке — только один тариф.</text></g><g class="explanation" data-number="4" data-parent="tariffs" data-child="cooperation_requests" data-field="tariff_id"><text x="2025" y="1397" font-size="18" font-weight="600">4. tariffs — cooperation_requests</text><text x="2025" y="1418" font-size="17" fill="#444">В заявке тариф необязателен; один тариф можно выбрать во многих заявках.</text></g><g class="explanation" data-number="5" data-parent="cooperation_requests" data-child="subscriptions" data-field="cooperation_request_id"><text x="2025" y="1443" font-size="18" font-weight="600">5. cooperation_requests — subscriptions</text><text x="2025" y="1464" font-size="17" fill="#444">Сейчас по одной заявке возможны несколько подписок; у каждой подписки — одна заявка.</text></g><g class="explanation" data-number="6" data-parent="users" data-child="quests" data-field="organizer_id"><text x="2025" y="1489" font-size="18" font-weight="600">6. users — quests</text><text x="2025" y="1510" font-size="17" fill="#444">Организатор может создать много квестов; у каждого квеста — один организатор.</text></g><g class="explanation" data-number="7" data-parent="users" data-child="quest_sessions" data-field="user_id"><text x="2025" y="1535" font-size="18" font-weight="600">7. users — quest_sessions</text><text x="2025" y="1556" font-size="17" fill="#444">Пользователь проходит много сеансов; гостевой сеанс может быть без user_id.</text></g><g class="explanation" data-number="8" data-parent="quests" data-child="quest_sessions" data-field="quest_id"><text x="2025" y="1581" font-size="18" font-weight="600">8. quests — quest_sessions</text><text x="2025" y="1602" font-size="17" fill="#444">Один квест проходят много раз; каждый сеанс относится к одному квесту.</text></g><g class="explanation" data-number="9" data-parent="quests" data-child="quest_points" data-field="quest_id"><text x="2025" y="1627" font-size="18" font-weight="600">9. quests — quest_points</text><text x="2025" y="1648" font-size="17" fill="#444">У квеста может быть много точек; каждая точка принадлежит одному квесту.</text></g><g class="explanation" data-number="10" data-parent="quest_points" data-child="tasks" data-field="quest_point_id"><text x="2025" y="1673" font-size="18" font-weight="600">10. quest_points — tasks</text><text x="2025" y="1694" font-size="17" fill="#444">У точки может быть несколько заданий; каждое задание относится к одной точке.</text></g><g class="explanation" data-number="11" data-parent="task_types" data-child="tasks" data-field="task_type_id"><text x="2025" y="1719" font-size="18" font-weight="600">11. task_types — tasks</text><text x="2025" y="1740" font-size="17" fill="#444">Один тип используется во многих заданиях; у каждого задания — один тип.</text></g><g class="explanation" data-number="12" data-parent="quests" data-child="quest_tags" data-field="quest_id"><text x="2025" y="1765" font-size="18" font-weight="600">12. quests — quest_tags</text><text x="2025" y="1786" font-size="17" fill="#444">Квест может иметь много меток; каждая запись привязки относится к одному квесту.</text></g><g class="explanation" data-number="13" data-parent="tags" data-child="quest_tags" data-field="tag_id"><text x="2025" y="1811" font-size="18" font-weight="600">13. tags — quest_tags</text><text x="2025" y="1832" font-size="17" fill="#444">Метка может стоять у многих квестов; каждая привязка относится к одной метке.</text></g><g class="explanation" data-number="14" data-parent="quest_points" data-child="quest_sessions" data-field="current_quest_point_id"><text x="2025" y="1857" font-size="18" font-weight="600">14. quest_points — quest_sessions</text><text x="2025" y="1878" font-size="17" fill="#444">Точка может быть текущей во многих сеансах; текущая точка в сеансе необязательна.</text></g><g class="explanation" data-number="15" data-parent="quest_sessions" data-child="session_events" data-field="quest_session_id"><text x="2025" y="1903" font-size="18" font-weight="600">15. quest_sessions — session_events</text><text x="2025" y="1924" font-size="17" fill="#444">В сеансе может быть много событий; каждое событие относится к одному сеансу.</text></g><g class="explanation" data-number="16" data-parent="quest_sessions" data-child="participant_answers" data-field="quest_session_id"><text x="2025" y="1949" font-size="18" font-weight="600">16. quest_sessions — participant_answers</text><text x="2025" y="1970" font-size="17" fill="#444">В сеансе может быть много ответов; каждый ответ относится к одному сеансу.</text></g><g class="explanation" data-number="17" data-parent="tasks" data-child="participant_answers" data-field="task_id"><text x="2025" y="1995" font-size="18" font-weight="600">17. tasks — participant_answers</text><text x="2025" y="2016" font-size="17" fill="#444">На задание может быть много ответов; каждый ответ относится к одному заданию.</text></g><g class="explanation" data-number="18" data-parent="quest_points" data-child="session_events" data-field="quest_point_id"><text x="2025" y="2041" font-size="18" font-weight="600">18. quest_points — session_events</text><text x="2025" y="2062" font-size="17" fill="#444">Точка может иметь много событий; событие может не иметь точки, например начало сеанса.</text></g><path d="M2025 2077 H3075" stroke="#dedede" /><text x="2025" y="2098" font-size="16" fill="#444">«Много» не означает, что дочерняя запись обязательно уже существует.</text><text x="2025" y="2120" font-size="16" fill="#444">quest_tags связывает квесты и метки по принципу «многие ко многим».</text></g><text x="1615" y="94" font-size="17" text-anchor="middle" fill="#555">Сплошная: FK заполнен. Пунктир: FK может быть пустым. Чёрная точка: сторона «много».</text></svg>
